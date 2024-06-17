@@ -1,8 +1,10 @@
 * {
+    --white: #FAFAFA;
      padding: 0;
      margin: 0;
-     background-color: #FAFAFA;
+     background-color: var(--white);
      font-family: Inter, sans-serif;
+
  }
 
  main {
@@ -21,43 +23,58 @@
     flex-grow: 1;
     background-color: black;
     flex-flow: wrap;
-    /*background-color: #eee;*/
 }
 
 
  .heading-1 {
      background-image: linear-gradient(135deg, #d26dfa, #e65270);
+     width: 90%;
      background-size: 150% 150%;
-     animation: rotate-colors 3s infinite alternate;
-     color: #fff;
-     font-size: 108px;
+     font-size: 4.5rem;
      font-weight: 800;
      letter-spacing: -0.0375em;
      -webkit-background-clip: text;
      background-clip: text;
      -webkit-text-fill-color: transparent;
-     flex-grow: 1;
+     margin: 0 auto 1rem auto;
  }
 
  /*Take your primary branding color, convert it to HSL then shift the lightness up to the 90-99% range until it's bright enough.*/
 
 #d1 {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0 2rem 0;
+    align-items: center;
+    padding: 1rem 0 7.5rem 0;
     text-align: center;
 
+        #description-wrapper {
+            width: 90%;
+            max-width: 800px;
+            text-wrap: balance;
+            text-align: center;
+            margin: auto auto 1.5rem auto;
+            h3 {
+                font-size: 1.3rem;
+                background: black;
+                color: #eee;
+            }
+
+        }
+
         #profile-picture-wrapper {
-            width: 50%;
+            margin: 0 auto 0 auto;
+            background-color: transparent;
+            /*width: 50%;*/
+            max-width: 250px;
+            position: relative;
             img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto 0 auto;
                 width: 100%;
                 border-radius: 50%;
             }
         }
 
-        #description-wrapper {
-            width: 50%;
-
-        }
 }
 
