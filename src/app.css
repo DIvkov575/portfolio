@@ -1,7 +1,8 @@
- * {
+* {
      padding: 0;
      margin: 0;
      background-color: #FAFAFA;
+     font-family: Inter, sans-serif;
  }
 
  main {
@@ -19,10 +20,44 @@
 .full-width-section-black {
     flex-grow: 1;
     background-color: black;
-    height:250px;
+    flex-flow: wrap;
     /*background-color: #eee;*/
 }
 
 
+ .heading-1 {
+     background-image: linear-gradient(135deg, #d26dfa, #e65270);
+     background-size: 150% 150%;
+     animation: rotate-colors 3s infinite alternate;
+     color: #fff;
+     font-size: 108px;
+     font-weight: 800;
+     letter-spacing: -0.0375em;
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+     flex-grow: 1;
+ }
 
  /*Take your primary branding color, convert it to HSL then shift the lightness up to the 90-99% range until it's bright enough.*/
+
+#d1 {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 2rem 0;
+    text-align: center;
+
+        #profile-picture-wrapper {
+            width: 50%;
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        #description-wrapper {
+            width: 50%;
+
+        }
+}
+
