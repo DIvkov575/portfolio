@@ -1,5 +1,4 @@
 <script>
-import svelteLogo from './assets/svelte.svg'
 </script>
 
 
@@ -24,12 +23,6 @@ import svelteLogo from './assets/svelte.svg'
 
 
     <div class="clear-wrapper" id="d2">
-        <div id="image-wrapper">
-            <img src="https://github-readme-stats.vercel.app/api?username=Divkov575&theme=swift&rank_icon=github&card_width=400">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Divkov575&layout=compact&theme=swift&card_width=355">
-<!--            <img src="https://github-readme-stats.vercel.app/api?username=Divkov575&theme=nord&rank_icon=github&card_width=400">-->
-<!--            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Divkov575&layout=compact&theme=nord&card_width=355">-->
-        </div>
         <div id="text-wrapper">
             <h3>Hi, I'm Dima 👋</h3>
             <h3>I'm a Software Engineer in the Boston Area and a rising Senior at Belmont High School.
