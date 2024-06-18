@@ -1,17 +1,13 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-
-  import { onMount } from 'svelte'
+import svelteLogo from './assets/svelte.svg'
   let animate = false;
   function handleClick(event) {
-      animate = false;
-      setTimeout(() => {
-          animate = true;
-      }, 5)
+      animate = true;
+      window.open("https://docs.google.com/document/d/1T9XzrENQ6zIA31F6u62IVUZ4Nv0bLxrnX-tp452k9Yw/edit?usp=sharing")
+
   }
 </script>
+
 
 <main>
 
@@ -22,7 +18,9 @@
 <!--            <h3>SWE Intern & Senior at Belmont High School</h3>-->
         </div>
         <div id="link-wrapper">
-            <a target ="_blank" on:click={handleClick} href="https://docs.google.com/document/d/1T9XzrENQ6zIA31F6u62IVUZ4Nv0bLxrnX-tp452k9Yw/edit?usp=sharing"><h3>Resume</h3></a>
+            <h3 on:click={handleClick}>Resume</h3>
+            <div class:animate-circle={animate} class="animation-circle"></div>
+<!--            <a target ="_blank" on:click={handleClick} href=""><h3>Resume</h3></a>-->
             <a target ="_blank" href="https://www.linkedin.com/in/dmitriyivkov/"><h3>Linkedin</h3></a>
             <a target ="_blank" href="https://github.com/DIvkov575"><h3>Github</h3></a>
         </div>
@@ -30,6 +28,9 @@
             <img src="../public/me1.jpg" alt="">
         </div>
     </div>
+
+
+
 
     <div class="clear-wrapper" id="d2">
         <div id="image-wrapper">
