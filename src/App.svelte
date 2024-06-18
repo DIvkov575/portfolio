@@ -15,7 +15,7 @@
             <a target ="_blank" href="https://github.com/DIvkov575"><h3>Github</h3></a>
         </div>
         <div id="profile-picture-wrapper">
-            <img src="../public/me1.jpg" alt="">
+            <img src="/me1.jpg" alt="">
         </div>
     </div>
 
