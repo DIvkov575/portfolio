@@ -1,5 +1,5 @@
 * {
-    --white: #FAFAFA;
+    --white:#f7f7f7;
      padding: 0;
      margin: 0;
      background-color: var(--white);
@@ -7,10 +7,6 @@
 
  }
 
- main {
-     display: flex;
-     justify-content: center;
- }
 
  .box-section {
      flex-grow: 1;
@@ -39,42 +35,82 @@
      margin: 0 auto 1rem auto;
  }
 
- /*Take your primary branding color, convert it to HSL then shift the lightness up to the 90-99% range until it's bright enough.*/
+main {
+    display: flex;
+    flex-direction: column;
 
-#d1 {
-    align-items: center;
-    padding: 1rem 0 7.5rem 0;
-    text-align: center;
+    #d1 {
+        align-items: center;
+        padding: 1rem 0 7.5rem 0;
+        text-align: center;
+            #description-wrapper {
+                width: 90%;
+                max-width: 800px;
+                text-wrap: balance;
+                text-align: center;
+                margin: auto auto 1.5rem auto;
+                h3 {
+                    font-size: 1.3rem;
+                    background: black;
+                    color: #eee;
+                }
 
-        #description-wrapper {
-            width: 90%;
-            max-width: 800px;
-            text-wrap: balance;
-            text-align: center;
-            margin: auto auto 1.5rem auto;
-            h3 {
-                font-size: 1.3rem;
-                background: black;
-                color: #eee;
+            }
+            #link-wrapper {
+                display: flex;
+                justify-content: center;
+                background-color: black;
+                h3, a {
+                    margin: 0 1rem 1rem 1rem;
+                    font-size: 1.3rem;
+                    background: black;
+                    color: #eee;
+                }
             }
 
-        }
-
-        #profile-picture-wrapper {
-            margin: 0 auto 0 auto;
-            background-color: transparent;
-            /*width: 50%;*/
-            max-width: 250px;
-            position: relative;
-            img {
-                position: absolute;
-                left: 0;
-                right: 0;
+            #profile-picture-wrapper {
                 margin: 0 auto 0 auto;
-                width: 100%;
-                border-radius: 50%;
+                background-color: transparent;
+                max-width: 250px;
+                position: relative;
+                img {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto 0 auto;
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+    }
+
+    #d2 {
+        border: 1px solid #dddddd;
+        border-radius: 4.5px;
+        max-width: 800px;
+        width: 80%;
+        margin: 9.5rem auto 0 auto;
+        padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+
+        #image-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-flow: wrap;
+            padding-bottom: 1.5rem;
+
+            * {
+                height: 150px;
             }
         }
+        #text-wrapper {
+            h3 {
+                font: 400 1.1rem 'Segoe UI', Ubuntu, Sans-Serif;
+                color: #434343;
+                line-height: 1.15;
+            }
+
+        }
+    }
 
 }
-
