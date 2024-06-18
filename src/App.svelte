@@ -1,4 +1,5 @@
 <script>
+    import Post from "./lib/post.svelte";
 </script>
 
 
@@ -45,8 +46,10 @@
     </div>
 
     <div class="clear-wrapper">
-        <h3>I might post what ive been learning here</h3>
-        <div></div>
+        <h2 style="margin: -1rem 0 1rem 1.5rem">Things I've learned & made</h2>
+        <Post title='"Infonomics" by Douglas B. Laney' content="Great Read - Would Recommend. Infonomics suggests that information should be viewed as an asset (which many companies underutilize). Infonomics also covered issues such as information ownership, legality, measurement, and managment." imageUrl="/posts/infonomics.jpg"/>
+        <Post title="Kolmogorov-Complexity" content="The minimum size program necessary to generate a certain output.
+         Can be used to determine how complex a string/output is, because if longer program is necessary to generate the output -> less patterns in desired output. Upper bound can be estimated with Limpel-Ziv Compression. If (K(z) > len(z)) => string z can be considered random."/>
     </div>
 
 </main>
