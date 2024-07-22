@@ -1,0 +1,230 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro';
+import { Image } from 'astro:assets';
+import line from '@/images/line.svg?raw';
+import { ButtonComponent } from '@/components/ui/ButtonComponent';
+
+---
+
+<Layout title='Dmitriy Ivkov'>
+	<main>
+		<div class='content'>
+			<div class='front-page'>
+				<div class='title'>
+					<h1>Hey there</h1>
+					<h1>
+						I'm <span class='linear-gradient-text'>Dmitriy<span class='linear-gradient-text glow'>Dmitriy</span></span>
+					</h1>
+
+					<p>I make websites, and uh that's it :)</p>
+					<ButtonComponent variant='default' link='/contact' text='Contact Me' />
+				</div>
+
+				<div class='line'>
+					<div class='line-ctn'>
+						<Fragment set:html={line} />
+						<div class='line-ctn glow'><Fragment set:html={line} /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='who-i-am'>
+			<h3>Based in the UK</h3>
+			<p>
+				I love CS & Rust
+			</p>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	import anime from 'animejs/lib/anime.es.js';
+
+	const createBlinkingAnimation = (
+		targets: HTMLElement | NodeList | string,
+		options: { speed?: 'quick' | 'slow'; variant?: 'normal' | 'off'; loop?: boolean; autoplay?: boolean } = {
+			speed: 'slow',
+			variant: 'normal',
+			loop: false,
+			autoplay: false,
+		},
+	) => {
+		switch (options.variant) {
+			case 'normal':
+				return anime
+					.timeline(options)
+					.add({
+						duration: options?.speed === 'quick' ? 0 : 600,
+					})
+					.add({
+						targets,
+						opacity: [0.35, 1, 0.35, 1],
+						easing: 'linear',
+						duration: 260,
+					})
+					.add({
+						duration: options?.speed === 'quick' ? 300 : 1000,
+					});
+
+			case 'off':
+				return anime
+					.timeline(options)
+					.add({
+						targets,
+						opacity: [0, 1, 0, 1, 0],
+						easing: 'linear',
+						duration: 260,
+					})
+					.add({
+						duration: 2000,
+					})
+					.add({
+						targets,
+						opacity: 1,
+						duration: 300,
+						easing: 'easeInOutQuad',
+					});
+
+			default:
+				return anime
+					.timeline(options)
+					.add({
+						duration: options?.speed === 'quick' ? 0 : 600,
+					})
+					.add({
+						targets,
+						opacity: [0.35, 1, 0.35, 1],
+						easing: 'linear',
+						duration: 260,
+					})
+					.add({
+						duration: options?.speed === 'quick' ? 300 : 1000,
+					});
+		}
+	};
+
+	document.addEventListener('astro:page-load', () => {
+		anime({
+			targets: '.line path',
+			strokeDashoffset: [anime.setDashoffset, 0],
+			easing: 'easeInQuad',
+			duration: 1000,
+			autoplay: true,
+		}).finished.then(() => {
+			const blinkingLine = createBlinkingAnimation('.line > *', { autoplay: true, speed: 'slow', loop: true, variant: 'normal' });
+			blinkingLine.play();
+		});
+
+		const blinkingText = createBlinkingAnimation('.title h1 span.linear-gradient-text:not(span.glow)', {
+			autoplay: false,
+			loop: false,
+			variant: 'off',
+			speed: 'quick',
+		});
+
+		document.querySelector<HTMLElement>('.title h1 span.linear-gradient-text')!.addEventListener('mouseenter', event => {
+			blinkingText.restart();
+		});
+	});
+</script>
+
+<style lang='scss'>
+	.content {
+		min-width: 100vw;
+		max-width: 100vw;
+		height: auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 15%;
+
+		.front-page {
+			height: 100dvh;
+			width: 100%;
+
+			.line {
+				position: absolute;
+				bottom: 40%;
+				left: 200px;
+				width: 1750px;
+
+				.line-ctn:not(.glow) {
+					z-index: -1;
+					position: relative;
+
+					.line-ctn.glow {
+						position: absolute;
+						top: 0;
+						left: 0;
+						opacity: 0.5;
+						filter: blur(10px);
+					}
+				}
+			}
+
+			.title {
+				position: relative;
+				top: 5%;
+
+				h1 {
+					&:not(:has(span)) {
+						position: relative;
+
+						&::after {
+							content: '👋';
+							position: relative;
+							animation: wave 1.5s infinite ease-in-out;
+							transform-origin: bottom right;
+						}
+
+						@keyframes wave {
+							0% {
+								transform: rotateZ(0deg);
+							}
+
+							50% {
+								transform: rotateZ(20deg);
+							}
+
+							100% {
+								transform: rotateZ(0deg);
+							}
+						}
+					}
+					& .linear-gradient-text {
+						cursor: default;
+						position: relative;
+						z-index: 100;
+
+						span.glow {
+							z-index: -1;
+							position: absolute;
+							left: 0;
+							opacity: 0.7;
+							filter: blur(10px);
+						}
+					}
+				}
+
+				p {
+					color: var(--_text-faint);
+					margin: 32px 0;
+					width: 100%;
+				}
+			}
+		}
+
+		.who-i-am {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			width: 40vw;
+			height: 20vh;
+			position: relative;
+			top: 40%;
+			// opacity: 0;
+			// transform: translateY(80px) rotateX(35deg);
+		}
+	}
+</style>

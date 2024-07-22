@@ -1,0 +1,76 @@
+---
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { ButtonComponent } from '@/components/ui/ButtonComponent';
+import { Image } from 'astro:assets';
+import logo from '@/images/plop.png';
+---
+
+<div class='navbar'>
+	<div class='items'>
+		<a class='logo' href='/#top'>
+			<Image src={logo} alt='' />
+			<span>Dmitriy</span>
+		</a>
+		<div class='links'>
+			<ButtonComponent variant='ghost' text='Home' link='/#top' client:visible />
+			<ButtonComponent variant='ghost' text='About me' link='/#about' client:visible />
+			<ButtonComponent variant='ghost' text='Archive' link='/archive' client:visible />
+			<ButtonComponent variant='ghost' text='Contact' link='/contact' client:visible />
+		</div>
+		<div class='theme-toggle'>
+			<ThemeToggle client:visible />
+		</div>
+	</div>
+</div>
+
+<style lang='scss'>
+	.navbar {
+		width: 100%;
+		position: fixed;
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		overflow-x: hidden;
+		height: 62px;
+		border-bottom: 1px solid var(--_grey);
+		backdrop-filter: blur(6px);
+
+		.items {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			padding: 0 16px;
+
+			.logo {
+				text-decoration: none;
+				pointer-events: fill;
+				cursor: pointer;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 12px;
+
+				img {
+					border-radius: 50%;
+					height: 36px;
+					width: auto;
+				}
+			}
+
+			.links {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				gap: 12px;
+			}
+
+			.theme-toggle {
+				flex: 1 1;
+			}
+		}
+	}
+</style>

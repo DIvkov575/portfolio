@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Open%20Sans:700|Inter:400");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+
+:root {
+    --_text: #272727;
+    --_text-faint: #4b4b4b;
+    --_background: #e6e6e6;
+    --_primary: #3fd573;
+    --_primary-faint: #31a359c7;
+    --_secondary: #dbdbdb;
+    --_accent: #36e4de;
+
+    --_grey: #b4b4b4;
+
+    --linearPrimarySecondary: linear-gradient(270deg, var(--_primary), var(--_secondary));
+    --linearPrimaryAccent: linear-gradient(270deg, var(--_primary), var(--_accent));
+    --linearSecondaryAccent: linear-gradient(270deg, var(--_secondary), var(--_accent));
+    --radialPrimarySecondary: radial-gradient(var(--_primary), var(--_secondary));
+    --radialPrimaryAccent: radial-gradient(var(--_primary), var(--_accent));
+    --radialSecondaryAccent: radial-gradient(var(--_secondary), var(--_accent));
+
+    --navbarHeight: calc(62px + 1px);
+
+    --transition: 0.3s ease;
+}
+:root.dark {
+    --_text: #dadada;
+    --_text-faint: #c0c0c0;
+    --_background: #191919;
+    --_primary: #2ac15f;
+    --_primary-faint: #229b4da8;
+    --_secondary: #242424;
+    --_accent: #00c2bb;
+
+    --_grey: #3d3d3d;
+
+    color-scheme: dark;
+}
+
+body {
+    font-family: "Fira Code";
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Fira Code";
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+html {
+    font-size: 100%;
+} /* 16px */
+
+h1 {
+    font-size: 4.21rem; /* 67.36px */
+}
+
+h2 {
+    font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+    font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+    font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+    font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+    font-size: 0.75rem; /* 12px */
+}
+
+* {
+    color: var(--_text);
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--_background);
+}
+
+main {
+    top: var(--navbarHeight);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 4rem;
+}
+
+p {
+    letter-spacing: -0.5px;
+}
+
+.linear-gradient-text {
+    background: var(--linearPrimaryAccent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a.normal {
+    text-decoration: none;
+    color: var(--_accent);
+}
