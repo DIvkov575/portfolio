@@ -4,54 +4,30 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import { ViewTransitions } from 'astro:transitions';
 import '@/styles/shadcnui.css';
 import '@/styles/global.scss';
-import Navbar from '@/components/Navbar.astro';
 
 interface Props {
 	title: string;
 	viewTransitions?: boolean;
 }
 
-const { title, viewTransitions } = Astro.props;
 ---
 
-<!doctype html>
 <html lang='en'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='description' content='My portfolio, enjoy!' />
 		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/plop-rounded.png' />
 		<meta name='generator' content={Astro.generator} />
-		<title>{title} | Maxime C</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:Title" content="Dmitriy Ivkov" />
+		<meta property="og:description" content="Dmitriy's portfolio website" />
+		<!--<meta property="og:url" content="" />-->
+		<!--<meta property="og:image" content="https://" />-->
+		<title>Dmitriy Ivkov</title>
 		<ViewTransitions />
 	</head>
 	<body>
 		<SpeedInsights />
-		<Navbar transition:persist />
-
 		<slot />
-		<script is:inline>
-			function checkTheme() {
-				const getThemePreference = () => {
-					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-						return localStorage.getItem('theme');
-					}
-					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-				};
-				const isDark = getThemePreference() === 'dark';
-				document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
-
-				if (typeof localStorage !== 'undefined') {
-					const observer = new MutationObserver(() => {
-						const isDark = document.documentElement.classList.contains('dark');
-						localStorage.setItem('theme', isDark ? 'dark' : 'light');
-					});
-					observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-				}
-			}
-
-			document.addEventListener('astro:after-swap', checkTheme);
-			document.addEventListener('DOMContentLoaded', checkTheme);
-		</script>
 	</body>
 </html>
